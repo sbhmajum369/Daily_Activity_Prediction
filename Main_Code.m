@@ -1,7 +1,7 @@
 
 clear all;
 clc;
-cd 'D:\Fall term course materials\Wearables and IOT\Project\Project\Dataset';
+cd 'D:\...';    % Dataset Folder
 T = readtable('ConfLongDemo_JSI.csv');
 H=height(T);
 m=0;
@@ -28,6 +28,7 @@ NewTab(:,1)=A(:,1);
 X=array2table(B(:,1));
 NewTab(:,2)=X;
 NewTab(:,3)=C(:,1);
+
 %Pre-Procesing
 X1=hampel(D(:,1),4);                %Replacing outliers with hampel filter.
 X2=hampel(D(:,2),4);
@@ -61,6 +62,7 @@ NewTab(:,13)=O(:,1);
 
 clear X;clear X1;clear X2;clear X3;clear asd;clear qwe;clear zxc;clear cde1;clear cde2;clear bnm1;clear bnm2;
 clear jkl;clear iop;clear xxx;clear x11;clear x12;clear x13;clear X11;clear X22;clear X33;
+
 %Training
 Inp = NewTab(1:86041,[2 4 5 6 7 8 9 10 11 12]);
 Out = NewTab(1:86041,13);
@@ -81,6 +83,7 @@ end
 clear indx;
 NB=fitcnb(X,Y);                                 %Naive Bayes
 DT=fitctree(X,Y);                               %Decision Tree
+
 %Cross-Validation
 CV1 = crossval(M,'kFold',5);
 classErrorknn = kfoldLoss(CV1)
@@ -115,6 +118,7 @@ c3=confusionmat(YP,label3);
 
 label4= predict(DT,XP);
 c4=confusionmat(YP,label4);
+
 %Prediction metrics
 TP=0;
 FP=0;
