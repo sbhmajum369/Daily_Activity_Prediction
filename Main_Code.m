@@ -2,7 +2,7 @@
 clear all;
 clc;
 cd 'D:\...';    % Dataset Folder
-T = readtable('ConfLongDemo_JSI.csv');
+T = readtable('Accelerometer_Data.csv');
 H=height(T);
 m=0;
 
